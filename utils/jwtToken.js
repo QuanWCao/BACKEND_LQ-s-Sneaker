@@ -10,7 +10,6 @@ const sendToken = async (user, statusCode, res) => {
     ),
     httpOnly: true,
   };
-
   const newUser = await User.findById(user._id).select("-password")
 
   res.status(statusCode).cookie("token", token, options).json({

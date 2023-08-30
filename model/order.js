@@ -11,7 +11,6 @@ const orderSchema = new mongoose.Schema({
             required: true,
         },
 
-
         district: {
             type: String,
             required: true,
