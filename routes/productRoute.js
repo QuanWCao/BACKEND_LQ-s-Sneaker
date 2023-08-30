@@ -5,9 +5,7 @@ const {
     updateProduct,
     deleteProduct,
     getProductDetails,
-    createProductReview,
-    getProductReviews,
-    deleteReview,
+    
     getAdminProducts,
 } = require("../controller/productController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");

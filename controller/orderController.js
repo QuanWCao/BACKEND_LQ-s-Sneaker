@@ -1,5 +1,5 @@
-const Order = require("../models/orderModel");
-const Product = require("../models/productModel");
+const Order = require("../model/order");
+const Product = require("../model/product");
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
@@ -8,9 +8,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     const {
         shippingInfo,
         orderItems,
-       
         itemsPrice,
-        
         shippingPrice,
         totalPrice,
     } = req.body;
@@ -18,9 +16,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.create({
         shippingInfo,
         orderItems,
-        
         itemsPrice,
-        
         shippingPrice,
         totalPrice,
         

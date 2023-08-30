@@ -11,18 +11,20 @@ const orderSchema = new mongoose.Schema({
             required: true,
         },
 
-        state: {
+
+        district: {
             type: String,
             required: true,
         },
 
-        country: {
+
+        wards: {
             type: String,
             required: true,
         },
         idOrder: {
             type: Number,
-            required: true,
+            // required: true,
         },
         phone: {
             type: String,
@@ -47,7 +49,7 @@ const orderSchema = new mongoose.Schema({
             },
             image: {
                 type: String,
-                required: true,
+                // required: true,
             },
             product: {
                 type: mongoose.Schema.ObjectId,
@@ -61,26 +63,7 @@ const orderSchema = new mongoose.Schema({
         ref: "User",
         required: true,
     },
-    // paymentInfo: {
-    //     imagePaid: {
-    //         public_id: {
-    //             type: String,
-    //             default: "",
-    //         },
-    //         url: {
-    //             type: String,
-    //             default: "",
-    //         },
-    //     },
-    //     status: {
-    //         type: String,
-    //         required: true,
-    //     },
-    // },
-    // paidAt: {
-    //     type: Date,
-    //     required: true,
-    // },
+  
     itemsPrice: {
         type: Number,
         required: true,

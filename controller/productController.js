@@ -4,10 +4,11 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utils/apifeatures");
 const cloudinary = require("cloudinary");
 
+
 // Create Product -- Admin
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     let images = [];
-
+    console.log(req.body);
     if (typeof req.body.images === "string") {
         images.push(req.body.images);
     } else {
@@ -40,27 +41,29 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 
 // Get All Product
 exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
-    const resultPerPage = 8;
-    const productsCount = await Product.countDocuments();
+    // const resultPerPage = 8;
+    // const productsCount = await Product.countDocuments();
+    const products = await Product.find();
 
-    const apiFeature = new ApiFeatures(Product.find(), req.query)
-        .search()
-        .filter();
+    // console.log(product);
+    // const apiFeature = new ApiFeatures( Product.find(), req.query)
+    //     .search()
+    //     .filter();
 
-    let products = await apiFeature.query;
+    // let products = await apiFeature.query;
 
-    let filteredProductsCount = products.length;
+    // let filteredProductsCount = products.length;
 
-    apiFeature.pagination(resultPerPage);
+    // apiFeature.pagination(resultPerPage);
 
-    products = await apiFeature.query;
+    // products = await apiFeature.query;
 
     res.status(200).json({
         success: true,
         products,
-        productsCount,
-        resultPerPage,
-        filteredProductsCount,
+        // productsCount,
+        // resultPerPage,
+        // filteredProductsCount,
     });
 });
 
